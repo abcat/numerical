@@ -1,22 +1,7 @@
 #-*-coding:utf8-*-
 #!/usr/bin/env python
 #This is the implements of methods to compute roots of equations.
-from my_util impport *
-
-
-def D(f, h = 1e-6):
-    """
-    first derivative of f
-    get the algorithm from the define of derivative
-    """
-    return lambda x,f=f,h=h: (f(x+h)-f(x-h))/2/h
-
-
-def DD(f, h = 1e-6):
-    """
-    second derivative of f
-    """
-    return lambda x,f=f,h=h: (f(x+h)-2.0*f(x)+f(x-h))/(h*h)
+from my_util import *
 
 
 def solve_bisection(f, a, b, eps=1e-6, ns=100):
@@ -51,7 +36,9 @@ def solve_bisection(f, a, b, eps=1e-6, ns=100):
 
 def solve_newton(f, x, eps=1e-6, ns=20):
     """
-
+    The Newtons's methond for solving f(x)=0 draws the tangent to the graph of f(x)
+    at any point and determines where the tangent intersects the x-axis.
+    The method requires one starting value x.
     """
     x = float(x)
     for k in xrange(ns):
