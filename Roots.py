@@ -48,3 +48,17 @@ def solve_newton(f, x, eps=1e-6, ns=20):
             return x
     print("Error, no convergence.")
 
+
+def solve_secant(f, a, b, eps=1e-6, ns=50):
+    """
+    """
+    x0 = float(a)
+    x1 = float(b)
+    
+    for k in xrange(ns):
+        x = x1-((f(x1)*(x1-x0))/(f(x1)-f(x0)))
+        x0 = x1
+        x1 = x
+        if abs(x1 - x0) < eps * abs(x1):
+            return x
+    print("Error, secant cannot converge the function")
